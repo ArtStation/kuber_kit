@@ -6,8 +6,8 @@ class KuberKit::Shell::Commands::DockerCommands
     shell.exec!(%Q{docker image build #{build_dir} #{args_list}}, merge_stderr: true)
   end
 
-  def tag(shell, image_name, tag_name)
-    shell.exec!(%Q{docker tag #{image_name} #{tag_name}}, merge_stderr: true)
+  def tag(shell, current_tag_name, new_tag_name)
+    shell.exec!(%Q{docker tag #{current_tag_name} #{new_tag_name}}, merge_stderr: true)
   end
 
   def push(shell, tag_name)
