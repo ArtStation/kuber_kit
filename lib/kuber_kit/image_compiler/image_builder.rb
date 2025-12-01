@@ -18,9 +18,6 @@ class KuberKit::ImageCompiler::ImageBuilder
 
     build_result = docker_commands.build(shell, build_dir, build_options)
 
-    version_tag = version_tag_builder.get_version
-    docker_commands.tag(shell, image.registry_url, version_tag)
-
     if image.registry.remote?
       docker_commands.tag(shell, image.registry_url, image.remote_registry_url)
       docker_commands.push(shell, image.remote_registry_url)

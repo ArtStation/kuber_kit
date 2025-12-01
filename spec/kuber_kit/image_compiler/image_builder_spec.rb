@@ -23,15 +23,9 @@ RSpec.describe KuberKit::ImageCompiler::ImageBuilder do
     subject.build(shell, image, "/tmp/build/example")
   end
 
-  it "adds tag with version if registry is not remote" do
-    expect(subject.docker_commands).to receive(:tag).with(shell, "default/example:latest", "202010.202010")
-    subject.build(shell, image, "/tmp/build/remote_image")
-  end
-
   it "adds tag with remote registry url and version if registry is remote" do
     remote_image = test_helper.remote_image(:remote_image, "http://test.com")
 
-    expect(subject.docker_commands).to receive(:tag).with(shell, "remote/remote_image:latest", "202010.202010")
     expect(subject.docker_commands).to receive(:tag).with(shell, "remote/remote_image:latest", "http://test.com/remote/remote_image:latest")
     subject.build(shell, remote_image, "/tmp/build/remote_image")
   end
