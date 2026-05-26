@@ -1,3 +1,6 @@
+**1.4.0**
+- Added opt-in deep-merge for configuration service_attributes. When `KuberKit::Container["configs"].deep_merge_service_attributes = true`, nested hashes (e.g. `env`) from a configuration's `service_attributes` are merged into the service's definition attributes instead of replacing them entirely. Arrays are still replaced, not concatenated. Disabled by default — existing behavior is unchanged.
+
 **1.3.8**
 - Deploy initializers separately first even if they are part of the initially requested list of services
 

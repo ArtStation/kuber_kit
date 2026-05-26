@@ -281,6 +281,10 @@ module KuberKit
       Container["configs"].deprecation_warnings_disabled
     end
 
+    def deep_merge_service_attributes?
+      Container["configs"].deep_merge_service_attributes
+    end
+
     def current_configuration
       if @configuration_name.nil?
         raise "Please set configuration name before calling current_configuration"
