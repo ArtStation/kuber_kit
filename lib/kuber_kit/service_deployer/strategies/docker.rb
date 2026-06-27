@@ -29,7 +29,7 @@ class KuberKit::ServiceDeployer::Strategies::Docker < KuberKit::ServiceDeployer:
     strategy_options = service.attribute(:deployer, default: {})
     unknown_options  = strategy_options.keys.map(&:to_sym) - STRATEGY_OPTIONS
     if unknown_options.any?
-      raise KuberKit::Error, "Unknow options for deploy strategy: #{unknown_options}. Available options: #{STRATEGY_OPTIONS}"
+      raise KuberKit::Error, "Unknown options for deploy strategy: #{unknown_options}. Available options: #{STRATEGY_OPTIONS}"
     end
     
     namespace       = strategy_options.fetch(:namespace, nil)

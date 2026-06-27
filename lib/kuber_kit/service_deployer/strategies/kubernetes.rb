@@ -26,7 +26,7 @@ class KuberKit::ServiceDeployer::Strategies::Kubernetes < KuberKit::ServiceDeplo
     strategy_options = service.attribute(:deployer, default: {})
     unknown_options  = strategy_options.keys.map(&:to_sym) - STRATEGY_OPTIONS
     if unknown_options.any?
-      raise KuberKit::Error, "Unknow options for deploy strategy: #{unknown_options}. Available options: #{STRATEGY_OPTIONS}"
+      raise KuberKit::Error, "Unknown options for deploy strategy: #{unknown_options}. Available options: #{STRATEGY_OPTIONS}"
     end
     
     resource_type = strategy_options.fetch(:resource_type, "deployment")
