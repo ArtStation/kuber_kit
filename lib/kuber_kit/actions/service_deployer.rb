@@ -118,7 +118,7 @@ class KuberKit::Actions::ServiceDeployer
   private
     def deploy_simultaneously(service_names, deployment_result)
       unless deployment_result.succeeded?
-        ui.print_debug("ServiceDeployer", "Deploymet already failed. Canceling: #{service_names.inspect}")
+        ui.print_debug("ServiceDeployer", "Deployment already failed. Canceling: #{service_names.inspect}")
         return
       end
 
